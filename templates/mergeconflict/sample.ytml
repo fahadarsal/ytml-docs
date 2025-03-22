@@ -1,0 +1,80 @@
+<ytml>
+  <config>
+  FRAME_RATE = 30
+  VIDEO_HEIGHT=1088
+  HTML_ASSETS = {"css": ["css/merge_conflict_styles.css"], "js": ["js/mermaid_init.js", "js/prism.js"], "animations": ["js/typewriter_effect.js"]}
+  </config>
+    <composite id="diagram">
+      <frame>
+        <div class="content-frame">
+          <div class="header">OCP Diagram</div>
+  <mermaid>
+  flowchart LR
+      Original[Original Class]
+      Extension1[Extension Class A]
+      Extension2[Extension Class B]
+  
+      Original -. No direct changes .- Extension1
+      Original -. No direct changes .- Extension2
+  
+      Extension1 --> BehaviorA
+      Extension2 --> BehaviorB
+  </mermaid>
+          <p>
+            Instead of modifying Original for each new behavior, you create Extension classes that plug in.
+          </p>
+        </div>
+      </frame>
+      <voice1 start="0.5s" end="10s">
+        This shows that original class remains closed to editing, 
+        while new classes handle each variation. 
+        Next, let's see a short code snippet to make this concrete.
+      </voice1>
+    </composite>
+  
+    <!-- ==========================
+         COMPOSITE 5: CODE EXAMPLE
+    =========================== -->
+    <composite id="code-example">
+      <frame>
+        <div class="content-frame">
+  <pre>
+    <code class="language-javascript">
+  // Instead of editing a big if else, we define new classes implementing an interface
+  
+  class ShippingStrategy {
+    calculateCost(order) {
+      throw new Error('Override this method');
+    }
+  }
+  
+  class FedExStrategy extends ShippingStrategy {
+    calculateCost(order) {
+      // FedEx formula
+      return 10.0;
+    }
+  }
+  
+  class USPSStrategy extends ShippingStrategy {
+    calculateCost(order) {
+      // USPS formula
+      return 5.5;
+    }
+  }
+  
+  // Original code does not change, it just uses a ShippingStrategy interface
+  function processShipping(order, strategy) {
+    return strategy.calculateCost(order);
+  }
+    </code>
+  </pre>
+        </div>
+      </frame>
+      <voice1 start="0.5s" end="13s">
+        Notice how we do not keep editing the core shipping function. 
+        We just pass a new strategy. That is the essence of open for extension, 
+        closed for modification. Next, a few best practices then we are done.
+      </voice1>
+    </composite>
+  </ytml>
+  

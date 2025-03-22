@@ -6,7 +6,7 @@ const config: Config = {
   url: "https://ytml-docs.web.app",
   baseUrl: "/",
   favicon: "img/ytml.svg",
-  organizationName: "MergeConflict", // GitHub org/user
+  organizationName: "YTML", // GitHub org/user
   projectName: "ytml-docs", // Repo name
   i18n: {
     defaultLocale: "en",
@@ -60,7 +60,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} MergeConflict`,
+      copyright: `Copyright © ${new Date().getFullYear()} YTML`,
     },
   },
 };

@@ -1,0 +1,408 @@
+
+        <html >
+        
+            <head >
+                <style>@import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000");
+body {
+  margin: 0;
+}
+/* Frame Styling */
+.intro-frame {
+  background-color: #252525;
+  color: #2ecc71;
+  font-family: "Afacad Flux", sans-serif;
+  width: 1920px;
+  height: 1080px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content-frame {
+  background-color: #252525;
+  color: white;
+  width: 1920px;
+  height: 1080px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.green-frame {
+  background-color: #2ecc71;
+  color: white;
+  font-family: "Afacad Flux", sans-serif;
+  width: 1920px;
+  height: 1080px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.white-frame {
+  background-color: #ffffff;
+  color: #333;
+  font-family: "Afacad Flux", sans-serif;
+  width: 1920px;
+  height: 1080px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Text  Layout */
+.header {
+  font-size: 4em;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: slide-up 2s ease-in-out;
+}
+
+.subheader {
+  font-size: 2.5em;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.footer {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 40px;
+  animation: slide-up 1s ease-in-out;
+}
+
+p:not(.mermaid p) {
+  font-size: 1.8em;
+  max-width: 75%;
+  text-align: center;
+}
+
+/* Animations */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes slide-up {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Mermaid Container */
+.mermaid {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+}
+.nice-list {
+  /* remove default list spacing */
+  margin: 1em 0;
+  padding-left: 0;
+}
+/* Each list item becomes a "card" or "highlighted row" */
+.nice-list li {
+  position: relative;
+  list-style: none; /* no default bullet */
+  margin: 0.75em 0;
+  padding: 0.75em 1em 0.75em 2.5em; /* extra left padding for the bullet */
+  /* background-color: #2ecc71;         */
+  border: solid #2ecc71 2px;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  /* color: #333; */
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+/* Create a custom circular marker on the left */
+.nice-list li::before {
+  content: "";
+  position: absolute;
+  left: 1em; /* place the circle inside the left padding */
+  top: 50%; /* vertically center it */
+  transform: translateY(-50%);
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: 50%;
+  background-color: #2ecc71; /* primary bullet color */
+}
+
+/* Optional hover effect if desired */
+.nice-list li:hover {
+  background-color: #eef3f7; /* slightly darker on hover */
+}
+/* Mermaid Brand Styles */
+/*
+  Use these brand styles at the top of each mermaid diagram:
+  %% Define styles for the brand
+  classDef primary fill:#e74c3c,stroke:#c0392b,stroke-width:2,color:white,radius:10px;
+  classDef secondary fill:#2ecc71,stroke:#27ae60,stroke-width:2,color:white,radius:10px;
+  classDef warning fill:#f39c12,stroke:#d35400,stroke-width:2,color:white,radius:10px;
+  classDef background fill:#3498db,stroke:#2980b9,stroke-width:2,color:white,radius:10px;
+*/
+</style>
+                
+                <script src="../assets/mermaid.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                if (window.mermaid) {
+                    mermaid.initialize({
+                        startOnLoad: true,
+                        theme: "dark"
+                    });
+                }
+            });
+        </script><link rel="stylesheet" href="../assets/prism-one-dark.min.css" />
+            <link href="assets/prism-line-numbers.min.css" rel="stylesheet" />
+    
+            <!-- Prism Core -->
+            <script src="../assets/prism.min.js"></script>
+    
+            <!-- Line Numbers Plugin -->
+            <script src="../assets/prism-line-numbers.min.js"></script>
+    
+            <!-- Include JavaScript language for syntax highlighting -->
+            <script src="../assets/prism-javascript.min.js"></script>
+
+            <script type="text/javascript" src="components/prism-clike.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js" integrity="sha512-aNMyYYxdIxIaot0Y1/PLuEu3eipGCmsEUBrUq+7aVyPGMFH8z0eTP0tkqAvv34fzN6z+201d3T8HPb1svWSKHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script>
+document.addEventListener("DOMContentLoaded", () => {
+            // Function to wrap all text nodes in spans
+            function wrapAllTextNodes(node) {
+                node.childNodes.forEach((child) => {
+                    if (child.nodeType === Node.TEXT_NODE && child.nodeValue.trim()) {
+                        // Wrap raw text in a span
+                        const span = document.createElement("span");
+                        span.textContent = child.nodeValue;
+                        child.replaceWith(span);
+                    } else if (child.nodeType === Node.ELEMENT_NODE) {
+                        // Recurse into element nodes
+                        wrapAllTextNodes(child);
+                    }
+                });
+            }
+
+            // Function to apply the typewriter effect
+            function typewriterEffect(container, delay = 50) {
+                const spans = container.querySelectorAll("span");
+                let index = 0;
+
+                function showNextSpan() {
+                    if (index < spans.length) {
+                        spans[index].style.animationDelay = `${index * delay}ms`;
+                        spans[index].style.opacity = "1";
+                        index++;
+                        setTimeout(showNextSpan, delay);
+                    }
+                }
+
+                showNextSpan();
+            }
+
+            document.querySelectorAll("pre code").forEach((codeBlock) => {
+                wrapAllTextNodes(codeBlock); // Wrap all raw text in spans
+                typewriterEffect(codeBlock, 50); // Apply typewriter effect
+            });
+        });
+            // Initialize Mermaid with default settings
+    mermaid.initialize({
+        startOnLoad: true, // Mermaid automatically renders diagrams on page load
+        theme: 'dark',
+    });
+    
+    // Hook into Mermaid rendering
+    document.addEventListener('DOMContentLoaded', () => {
+        // Wait for Mermaid to finish rendering
+        mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+    
+        // Apply animations after rendering
+        setTimeout(() => {
+            // const rects = document.querySelectorAll('.mermaid .label-container');
+            
+    const allRects = Array.from(document.querySelectorAll('.mermaid rect,.mermaid .label-container'));
+    const allTexts = Array.from(document.querySelectorAll('.mermaid text'));
+    
+    // Step 2: Create the ordered selection
+    const orderedSelection = [];
+    
+    // Dynamically pair each <rect> with its sibling <text> and add to the array
+    allRects.forEach((rect) => {
+    // Add the current <rect>
+    orderedSelection.push(rect);
+    
+    // Check if the next sibling is <text>, and add it
+    const siblingText = rect.nextElementSibling;
+    if (siblingText && siblingText.tagName.toLowerCase() === 'text') {
+    orderedSelection.push(siblingText);
+    }
+    });
+    // orderedSelection.reverse();
+    
+    // Step 3: Add all remaining <text> elements (excluding already added ones)
+      const lines=Array.from(document.querySelectorAll('.mermaid line'));
+    orderedSelection.push(...lines);
+    const remainingTexts = allTexts.filter((text) => !orderedSelection.includes(text));
+    orderedSelection.push(...remainingTexts);
+    
+    // Log the ordered elements
+    const rects=orderedSelection
+    
+    console.log({rects})
+    rects.forEach((rect, index) => {
+    // Set initial styles for stroke animation
+    
+    // rect.style.stroke = '#f86f6f'; // Stroke color
+    rect.style.strokeWidth = '2'; // Stroke thickness
+    if(rect.tagName!=='text'){
+      rect.style.fill = 'none'; // Transparent fill
+    rect.style.strokeDasharray = rect.getTotalLength(); // Get perimeter of rect
+    rect.style.strokeDashoffset = rect.getTotalLength(); // Initially hide stroke
+    rect.style.stroke = '#2ecc71'; // Stroke color
+    rect.style.animation = `drawStroke 4s ease forwards, fillColor 3s ease ${1 + index * 0.4}s forwards`; // Stroke first, then fill
+    }
+    else{
+      rect.style.opacity=0;
+      rect.style.animation = `fade-in ${1 + index * 0.4}s forwards`; // Stroke first, then fill
+    }
+    rect.style.animationDelay = `${index * 400}ms`; // Staggered delay for stroke animation
+    });
+    }, 0); // Set timeout ensures execution happens after rendering
+    });
+    
+    // Add the animation keyframes to the document
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @keyframes drawStroke {
+        from {
+            stroke-dashoffset: 100%;
+        }
+        to {
+            stroke-dashoffset: 0;
+        }
+        }
+    
+        @keyframes fillColor {
+        from {
+            fill: none; /* Transparent */
+        }
+        to {
+            fill: none; /* Fill color */
+        }
+        }
+    `;
+
+    document.head.appendChild(style);
+    </script>
+
+        <style>
+            pre code span {
+                opacity: 0;
+            }
+        </style>
+
+            </head >
+            
+        <body >
+            <div style = "width:90%; height:90%;font-size:24px;" > <div class="content-frame">
+        <div class="header">What Developers Miss About the Open Closed Principle</div>
+        <div class="subheader">No More Endless If Else Blocks</div>
+      </div><div class="content-frame">
+        <div class="header">Defining OCP</div>
+        <p>
+          Open for extension means you can add new functionality by extending or plugging in new classes. 
+          Closed for modification means you do not change the existing code every time you add a feature. 
+        </p>
+      </div><div class="content-frame">
+        <div class="header">Big Misconception</div>
+        <p>
+          Many assume adding more if statements or switch cases is fine because 
+          code still compiles. But every time you modify that existing class, 
+          you risk introducing new bugs. OCP suggests you should extend via interfaces 
+          or new classes, not keep cramming logic into the original.
+        </p>
+      </div><div class="content-frame">
+        <div class="header">OCP Diagram</div>
+<div class='mermaid'>
+flowchart LR
+    Original[Original Class]
+    Extension1[Extension Class A]
+    Extension2[Extension Class B]
+
+    Original -. No direct changes .- Extension1
+    Original -. No direct changes .- Extension2
+
+    Extension1 --> BehaviorA
+    Extension2 --> BehaviorB
+</div>
+        <p>
+          Instead of modifying Original for each new behavior, you create Extension classes that plug in.
+        </p>
+      </div><div class="content-frame">
+<pre>
+  <code class="language-javascript">
+// Instead of editing a big if else, we define new classes implementing an interface
+
+class ShippingStrategy {
+  calculateCost(order) {
+    throw new Error('Override this method');
+  }
+}
+
+class FedExStrategy extends ShippingStrategy {
+  calculateCost(order) {
+    // FedEx formula
+    return 10.0;
+  }
+}
+
+class USPSStrategy extends ShippingStrategy {
+  calculateCost(order) {
+    // USPS formula
+    return 5.5;
+  }
+}
+
+// Original code does not change, it just uses a ShippingStrategy interface
+function processShipping(order, strategy) {
+  return strategy.calculateCost(order);
+}
+  </code>
+</pre>
+      </div><div class="content-frame">
+        <ul>
+          <li>Plan extension points from day one (like an interface or abstract class)</li>
+          <li>Avoid piling on if else inside the original class, push variation into new classes</li>
+          <li>Test each extension class separately to keep the core stable</li>
+        </ul>
+      </div><div class="content-frame">
+        <div class="header">Conclusion</div>
+        <div class="subheader">Stop Editing, Start Extending</div>
+      </div><div class="content-frame">
+      <div class="header">Before You Go</div>
+      <div class="subheader">Hit Like and Subscribe</div>
+      <p>
+        Your subscription fuels our creativity. If you found this video helpful,
+        show some love by clicking that thumbs up, and subscribe for more coding goodies.
+      </p>
+    </div> </divß>
+        </body >
+        </html >
+        

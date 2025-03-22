@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000");
+body {
+  margin: 0;
+}
+/* Frame Styling */
+.intro-frame {
+  background-color: #252525;
+  color: #2ecc71;
+  font-family: "Afacad Flux", sans-serif;
+  width: VIDEO_WIDTHpx;
+  height: VIDEO_HEIGHTpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content-frame {
+  background-color: #252525;
+  color: white;
+  width: VIDEO_WIDTHpx;
+  height: VIDEO_HEIGHTpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.green-frame {
+  background-color: #2ecc71;
+  color: white;
+  font-family: "Afacad Flux", sans-serif;
+  width: VIDEO_WIDTHpx;
+  height: VIDEO_HEIGHTpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.white-frame {
+  background-color: #ffffff;
+  color: #333;
+  font-family: "Afacad Flux", sans-serif;
+  width: VIDEO_WIDTHpx;
+  height: VIDEO_HEIGHTpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Text  Layout */
+.header {
+  font-size: 4em;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: slide-up 2s ease-in-out;
+}
+
+.subheader {
+  font-size: 2.5em;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.footer {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 40px;
+  animation: slide-up 1s ease-in-out;
+}
+
+p:not(.mermaid p) {
+  font-size: 1.8em;
+  max-width: 75%;
+  text-align: center;
+}
+
+/* Animations */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes slide-up {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Mermaid Container */
+.mermaid {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+}
+.nice-list {
+  /* remove default list spacing */
+  margin: 1em 0;
+  padding-left: 0;
+}
+/* Each list item becomes a "card" or "highlighted row" */
+.nice-list li {
+  position: relative;
+  list-style: none; /* no default bullet */
+  margin: 0.75em 0;
+  padding: 0.75em 1em 0.75em 2.5em; /* extra left padding for the bullet */
+  /* background-color: #2ecc71;         */
+  border: solid #2ecc71 2px;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  /* color: #333; */
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+/* Create a custom circular marker on the left */
+.nice-list li::before {
+  content: "";
+  position: absolute;
+  left: 1em; /* place the circle inside the left padding */
+  top: 50%; /* vertically center it */
+  transform: translateY(-50%);
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: 50%;
+  background-color: #2ecc71; /* primary bullet color */
+}
+
+/* Optional hover effect if desired */
+.nice-list li:hover {
+  background-color: #eef3f7; /* slightly darker on hover */
+}
+/* Mermaid Brand Styles */
+/*
+  Use these brand styles at the top of each mermaid diagram:
+  %% Define styles for the brand
+  classDef primary fill:#e74c3c,stroke:#c0392b,stroke-width:2,color:white,radius:10px;
+  classDef secondary fill:#2ecc71,stroke:#27ae60,stroke-width:2,color:white,radius:10px;
+  classDef warning fill:#f39c12,stroke:#d35400,stroke-width:2,color:white,radius:10px;
+  classDef background fill:#3498db,stroke:#2980b9,stroke-width:2,color:white,radius:10px;
+*/
