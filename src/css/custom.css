@@ -1,0 +1,33 @@
+:root {
+  --ifm-color-primary: #ff0000; /* YouTube Red */
+  --ifm-color-primary-dark: #cc0000; /* Darker Red */
+  --ifm-color-primary-darker: #b20000; /* Even Darker Red */
+  --ifm-color-primary-darkest: #990000; /* Darkest Red */
+  --ifm-color-primary-light: #ff3333; /* Lighter Red */
+  --ifm-color-primary-lighter: #ff6666; /* Even Lighter Red */
+  --ifm-color-primary-lightest: #ff9999; /* Lightest Red */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(
+    51,
+    51,
+    51,
+    0.1
+  ); /* Dark Charcoal */
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme="dark"] {
+  --ifm-color-primary: #ffffff; /* Lighter Red for Dark Mode */
+  --ifm-color-primary-dark: #cc3737; /* Darker but still noticeable */
+  --ifm-color-primary-darker: #b23030; /* Even Darker */
+  --ifm-color-primary-darkest: #993131; /* Darkest but visible */
+  --ifm-color-primary-light: #ff6666; /* Soft Red */
+  --ifm-color-primary-lighter: #ff7777; /* Even Softer Red */
+  --ifm-color-primary-lightest: #ff9999; /* Very Light Red */
+  --docusaurus-highlighted-code-line-bg: rgba(
+    51,
+    51,
+    51,
+    0.3
+  ); /* Dark Charcoal */
+}
